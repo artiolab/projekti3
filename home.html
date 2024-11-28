@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Online Store</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Store Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search products..." id="search">
+        </div>
+        <div class="cart">
+            <button onclick="goToCart()">Cart (0)</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="images/promotion.jpg" alt="Promotion">
+        <div class="hero-text">
+            <h1>Welcome to My Online Store</h1>
+            <p>Explore our collection of amazing products at the best prices!</p>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters">
+        <label for="categoryFilter">Category:</label>
+        <select id="categoryFilter">
+            <option value="all">All</option>
+            <option value="electronics">Electronics</option>
+            <option value="clothing">Clothing</option>
+            <option value="books">Books</option>
+        </select>
+
+        <label for="priceFilter">Price Range:</label>
+        <select id="priceFilter">
+            <option value="all">All</option>
+            <option value="under50">Under $50</option>
+            <option value="50-100">$50 - $100</option>
+            <option value="over100">Over $100</option>
+        </select>
+    </section>
+
+    
+    <section class="product-grid" id="productGrid">
+        <div class="product-card">
+            <img src="images/laptop.jpg" alt="Product 1">
+            <h3>MacBook</h3>
+            <p>$799.99</p>
+            <button onclick="addToCart('Product 1', 799.99)">Add to Cart</button>
+        </div>
+       
+        <div class="product-card">
+            <img src="images/mousepad.png" alt="Product 2">
+            <h3>Logitech MousePad</h3>
+            <p>$9.99</p>
+            <button onclick="addToCart('Product 2', 9.99)">Add to Cart</button>
+        </div>
+        
+        <div class="product-card">
+            <img src="images/256529-391456-medium.png" alt="Product 2">
+            <h3>Logitech MousePad</h3>
+            <p>$59.99</p>
+            <button onclick="addToCart('Product 2',59.99)">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/keyboard.png" alt="Product 2">
+            <h3>Logitech MousePad</h3>
+            <p>$59.99</p>
+            <button onclick="addToCart('Product 2',59.99)">Add to Cart</button>
+        </div>
+      
+    </section>
+
+    >
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
+        </div>
+        <div class="social-media">
+            <a href="#">Facebook</a> <a href="#">Instagram</a> <a href="#">Twitter</a>
+        </div>
+        <div class="store-contacts">
+            <p>Email: support@mystore.com</p>
+            <p>Phone: (123) 456-7890</p>
+        </div>
+    </footer>
+
+    <script src="script.js">
+        let cart = [];
+
+function addToCart(productName, price) {
+    cart.push({ productName, price });
+    alert(`${productName} has been added to your cart!`);
+    updateCartButton();
+}
+
+function updateCartButton() {
+    const cartButton = document.querySelector('.cart button');
+    cartButton.textContent = `Cart (${cart.length})`;
+}
+
+function goToCart() {
+    window.location.href = "cart.html";  // Redirect to cart page
+}
+
+    </script>
+</body>
+
+</html>
